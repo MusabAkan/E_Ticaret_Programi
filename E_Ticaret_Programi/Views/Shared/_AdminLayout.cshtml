@@ -20,7 +20,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Ürün Katalog</a>
+            <a class="navbar-brand" href="#">Yönetim Paneli</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
                     aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,20 +29,16 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/">Ana Sayfa <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/Product">Ürün <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Home/List">Ürünler</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Hakkımızda</a>
+                        <a class="nav-link" href="/Category">Kategori</a>
                     </li>
                 </ul>
-                @Html.Action("Summary","Cart")
-              
-                @Html.Partial("_LoginPartial")
-
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
         </div>
     </nav>

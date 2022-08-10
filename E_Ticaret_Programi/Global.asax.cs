@@ -1,5 +1,7 @@
+using E_Ticaret_Programi.Entity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +15,8 @@ namespace E_Ticaret_Programi
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            Database.SetInitializer(new DataInitializer());
+            Database.SetInitializer(new IdentityInitializer());
         }
     }
 }
