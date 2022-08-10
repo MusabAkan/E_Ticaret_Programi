@@ -52,6 +52,12 @@ namespace E_Ticaret_Programi.Controllers
         {
             return PartialView(GetCart());
         }
+        [Authorize]
+        public ActionResult Checkout()
+        {
+            return View(new ShippingDetails());
+        }
+
 
     }
 }
