@@ -10,7 +10,7 @@ namespace E_Ticaret_Programi.Controllers
 {
     public class CartController : Controller
     {
-        private DataContext db = new DataContext();
+        private readonly DataContext db = new DataContext();
         // GET: Cart
         public ActionResult Index()
         {
@@ -59,7 +59,7 @@ namespace E_Ticaret_Programi.Controllers
         }
         [HttpPost]
         public ActionResult Checkout(ShippingDetails shipping)
-        
+
         {
             var cart = GetCart();
 
@@ -82,33 +82,36 @@ namespace E_Ticaret_Programi.Controllers
             {
                 return View(shipping);
             }
-            
+
         }
 
         private void SaveOrder(Cart cart, ShippingDetails shipping)
         {
-            var order = new Order();
-
-            order.OrderNumber = "A" + (new Random()).Next(111111, 999999);
-
-            order.Total = cart.Total();
-
-            order.OrderDate = DateTime.Now;
-
-            order.Username = shipping.Username;
-            order.AdresBasligi = shipping.AdresBasligi;
-            order.Mahalle = shipping.Mahalle;
-            order.PostaKodu = shipping.PostaKodu;
-            order.Sehir = shipping.Sehir;
-            order.Semt = shipping.Semt;
-
-            order.OrderLines = new List<OrderLine>();
-            foreach (var pr in order.OrderLines)
+            var order = new Order
             {
-                var orderline = new OrderLine();
-                orderline.Quantity = pr.Quantity;
-                orderline.Price = pr.Quantity * pr.Price;
-                orderline.ProductId = pr.ProductId;
+                OrderNumber = "A" + (new Random()).Next(111111, 999999),
+
+                Total = cart.Total(),
+
+                OrderDate = DateTime.Now,
+
+                Username = shipping.Username,
+                AdresBasligi = shipping.AdresBasligi,
+                Mahalle = shipping.Mahalle,
+                PostaKodu = shipping.PostaKodu,
+                Sehir = shipping.Sehir,
+                Semt = shipping.Semt,
+
+                OrderLines = new List<OrderLine>()
+            };
+            foreach (var pr in cart.CartLines)
+            {
+                var orderline = new OrderLine
+                {
+                    Quantity = pr.Quantity,
+                    Price = pr.Quantity * pr.Product.Price,
+                    ProductId = pr.Product.Id
+                };
                 order.OrderLines.Add(orderline);
             }
             db.Orders.Add(order);

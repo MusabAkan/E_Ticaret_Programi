@@ -40,7 +40,18 @@
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Ad Soyad</label>
                     <div class="col-sm-10">
-                        @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+                        @if (!string.IsNullOrEmpty(User.Identity.Name))
+                        {
+                            <span class="badge-danger">
+                                @User.Identity.Name
+                            </span>
+                        }
+                        else
+                        {
+                            @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+
+                        }
+
                     </div>
                 </div>
 
