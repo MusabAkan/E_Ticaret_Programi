@@ -32,7 +32,7 @@ namespace E_Ticaret_Programi.Entity
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
                 var user = new ApplicationUser() { Name = "musab", Surname = "akan", UserName = "musabakan", Email = "musab.akan@hotmail.com" };
-                manager.Create(user, "@*Baba123*@");
+                manager.Create(user, "asdf1234.");
                 manager.AddToRole(user.Id, "admin");
                 manager.AddToRole(user.Id, "user");
 

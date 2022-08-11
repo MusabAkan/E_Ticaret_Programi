@@ -8,7 +8,7 @@ namespace E_Ticaret_Programi.Models
 {
     public class ShippingDetails
     {
-        public string FullName { get; set; }
+        public string Username { get; set; }
         [Required(ErrorMessage = "Lütfen adres tanımını yapınız")]
         public string AdresBasligi { get; set; }
 
