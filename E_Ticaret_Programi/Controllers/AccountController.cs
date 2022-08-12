@@ -95,7 +95,7 @@ namespace E_Ticaret_Programi.Controllers
 
         }
 
-
+        public int MyProperty { get; set; }
 
         public ActionResult Login()
         {

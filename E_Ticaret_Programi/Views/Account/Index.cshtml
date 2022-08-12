@@ -8,14 +8,13 @@
         <div class="col-md-12">
             <h2>Sipariş Bigileriniz</h2>
             <hr />
-            <table>
+            <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>Sipariş Numarası </th>
                         <th>Sipariş Tarih </th>
                         <th>Tutar </th>
-                        <th>Order </th>
-                        <th></th>
+                        <th></th>                       
 
                     </tr>
 
@@ -28,6 +27,9 @@
                         <td>@item.OrderDate.ToShortDateString()</td>
                         <td>@item.Total</td>
                         <td>@item.OrderState</td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = @item.Id }, new { @class = "btn btn-primary" })
+                        </td>
                     </tr>
                     }
                 </tbody>
