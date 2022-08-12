@@ -150,8 +150,8 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Entity\Category.cs" />
     <Compile Include="Entity\EnumOrderState.cs" />
-    <Compile Include="Entity\IdentityInitializer.cs" />
-    <Compile Include="Entity\IdentityDataContext.cs" />
+    <Compile Include="Identity\IdentityInitializer.cs" />
+    <Compile Include="Identity\IdentityDataContext.cs" />
     <Compile Include="Entity\DataContext.cs" />
     <Compile Include="Entity\DataInitializer.cs" />
     <Compile Include="Entity\Order.cs" />
@@ -163,10 +163,11 @@
     <Compile Include="Identity\ApplicationUser.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\OrderDetailsModel.cs" />
     <Compile Include="Models\ProductModels.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\ShippingDetails.cs" />
-    <Compile Include="Entity\UserOrderModel.cs" />
+    <Compile Include="Models\UserOrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +205,7 @@
     <Content Include="Views\Cart\Checkout.cshtml" />
     <Content Include="Views\Cart\Completed.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

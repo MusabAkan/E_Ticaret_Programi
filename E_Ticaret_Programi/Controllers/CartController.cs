@@ -95,7 +95,7 @@ namespace E_Ticaret_Programi.Controllers
                 
                 OrderDate = DateTime.Now,
                 
-                OrderState = EnumOrderState.Bekliyor,
+                OrderState = EnumOrderState.Waitting,
                 Username = User.Identity.Name,
                 AdresBasligi = shipping.AdresBasligi,
                 Mahalle = shipping.Mahalle,
@@ -103,7 +103,7 @@ namespace E_Ticaret_Programi.Controllers
                 Sehir = shipping.Sehir,
                 Semt = shipping.Semt,
 
-                OrderLines = new List<OrderLine>()
+                Orderlines = new List<OrderLine>()
             };
             foreach (var pr in cart.CartLines)
             {
@@ -113,7 +113,7 @@ namespace E_Ticaret_Programi.Controllers
                     Price = pr.Quantity * pr.Product.Price,
                     ProductId = pr.Product.Id
                 };
-                order.OrderLines.Add(orderline);
+                order.Orderlines.Add(orderline);
             }
             db.Orders.Add(order);
             db.SaveChanges();

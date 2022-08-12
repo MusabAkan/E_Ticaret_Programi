@@ -7,7 +7,7 @@ namespace E_Ticaret_Programi.Entity
 {
     public enum EnumOrderState
     {
-        Bekliyor,
-        Tamamlandı
+        Waitting,
+        Success
     }
 }
