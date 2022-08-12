@@ -90,10 +90,12 @@ namespace E_Ticaret_Programi.Controllers
             var order = new Order
             {
                 OrderNumber = "A" + (new Random()).Next(111111, 999999),
-
+                                
                 Total = cart.Total(),
-
+                
                 OrderDate = DateTime.Now,
+                
+                OrderState = EnumOrderState.Bekliyor,
 
                 Username = shipping.Username,
                 AdresBasligi = shipping.AdresBasligi,

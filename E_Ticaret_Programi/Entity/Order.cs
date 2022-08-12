@@ -11,6 +11,7 @@ namespace E_Ticaret_Programi.Entity
         public string OrderNumber { get; set; }
         public double Total { get; set; }
         public DateTime OrderDate { get; set; }
+        public EnumOrderState OrderState { get; set; }
         public string Username { get; set; }
         public string AdresBasligi { get; set; }
         public string Adres { get; set; }
@@ -19,6 +20,7 @@ namespace E_Ticaret_Programi.Entity
         public string Mahalle { get; set; }
         public string PostaKodu { get; set; }
         public virtual List<OrderLine> OrderLines { get; set; }//virtual araştır
+
     }
 
 

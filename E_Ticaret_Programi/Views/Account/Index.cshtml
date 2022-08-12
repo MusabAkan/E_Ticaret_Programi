@@ -1,0 +1,38 @@
+﻿@model IEnumerable<E_Ticaret_Programi.Models.UserOrderModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Sipariş Bigileriniz</h2>
+            <hr />
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sipariş Numarası </th>
+                        <th>Sipariş Tarih </th>
+                        <th>Tutar </th>
+                        <th>Order </th>
+                        <th></th>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.OrderNumber</td>
+                        <td>@item.OrderDate.ToShortDateString()</td>
+                        <td>@item.Total</td>
+                        <td>@item.OrderState</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

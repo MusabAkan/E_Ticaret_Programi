@@ -15,8 +15,8 @@ namespace E_Ticaret_Programi.Controllers
     public class AccountController : Controller
     {
         UserManager<ApplicationUser> UserManager;
-
         RoleManager<ApplicationRole> RoleManager;
+        DataContext db = new DataContext();
 
         public AccountController()
         {
@@ -28,6 +28,8 @@ namespace E_Ticaret_Programi.Controllers
 
 
         }
+
+
         // GET: Account
         public ActionResult Register()
         {
@@ -72,6 +74,27 @@ namespace E_Ticaret_Programi.Controllers
 
             return View(model);
         }
+
+
+        public ActionResult Index()
+        {
+            var username = User.Identity.Name;
+            var orders = db.Orders
+                .Where(i => i.Username == username)
+                .Select(i => new UserOrderModel()
+                {
+                    Id = i.Id,
+                    OrderNumber = i.OrderNumber,
+                    OrderDate = i.OrderDate,
+                    OrderState = i.OrderState,
+                    Total = i.Total
+
+                }).OrderByDescending(i => i.OrderDate).ToList();
+
+            return View(orders);
+
+        }
+
 
 
         public ActionResult Login()
