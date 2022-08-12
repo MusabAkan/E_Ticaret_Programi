@@ -96,8 +96,7 @@ namespace E_Ticaret_Programi.Controllers
                 OrderDate = DateTime.Now,
                 
                 OrderState = EnumOrderState.Bekliyor,
-
-                Username = shipping.Username,
+                Username = User.Identity.Name,
                 AdresBasligi = shipping.AdresBasligi,
                 Mahalle = shipping.Mahalle,
                 PostaKodu = shipping.PostaKodu,
