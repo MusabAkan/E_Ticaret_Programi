@@ -66,7 +66,9 @@ namespace E_Ticaret_Programi.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("RegisterUserError", $"Hata :{result.Errors.FirstOrDefault()}");
+                    string Error = result.Errors.FirstOrDefault();
+                    TempData["message"] = Error;
+                    ModelState.AddModelError("RegisterUserError", $"Hata :{Error}");
                 }
 
 
@@ -166,9 +168,9 @@ namespace E_Ticaret_Programi.Controllers
                 }
                 else
                 {
-
-
-                    ModelState.AddModelError("RegisterUserError", $"Kullanıc adı veya şifre yanlış");
+                    string Error = "Kullanıc adı veya şifre yanlış";
+                    TempData["message"] = Error;
+                    ModelState.AddModelError("RegisterUserError", Error);
 
                 }
 
