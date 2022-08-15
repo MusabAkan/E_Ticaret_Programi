@@ -1,0 +1,41 @@
+﻿@model  IEnumerable<E_Ticaret_Programi.Models.AdminOderModel>
+{
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h2>Siparişler</h2>
+    <hr />
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sipariş Numarası </th>
+                <th>Sipariş Tarih</th>
+                <th>Sipariş Durumu</th>
+                <th>Ürün Sayısı</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.OrderNumber</td>
+                    <td>@item.OrderDate</td>
+                    <td>@item.OrderState</td>
+                    <td>@item.Count</td>
+                    <td>@item.Total</td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

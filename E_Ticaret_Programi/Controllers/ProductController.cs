@@ -12,6 +12,7 @@ namespace E_Ticaret_Programi.Controllers
 {
     [Authorize(Roles = "admin")]
     public class ProductController : Controller
+
     {
         private DataContext db = new DataContext();
 
